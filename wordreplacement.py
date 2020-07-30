@@ -9,8 +9,11 @@ options = Options()
 options.headless = True
 driver = webdriver.Chrome(options=options, executable_path='./chromedriver')
 
-
-weak_words = ["example", "test", "hello"]
+weak_words = []
+word_file = open('weak_words.txt', 'r')
+for word in word_file:
+    weak_words.append(word.strip())
+print(weak_words)
 
 f = open("story.txt", "rt") 
 story = f.read()
